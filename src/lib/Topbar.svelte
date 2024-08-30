@@ -3,6 +3,7 @@
   import { createEventDispatcher } from "svelte";
   import addIcon from "../assets/ainewchat.svg";
   import settingIcon from "../assets/aisettings.svg";
+  import clearIcon from "../assets/clear.svg";
   // import { settingsVisible } from "../stores/stores";
 
   const dispatch = createEventDispatcher();
@@ -44,8 +45,8 @@
     <span class="btn-text">{$t('topbar.newChat')}</span>
   </button> -->
   <button on:click={clearConversation} class="btn-custom">
-    <img class="icon-small" alt="clear" src={addIcon} />
-    <span class="btn-text">{$t('topbar.setting', { default: 'Settings' })}</span>
+    <img class="icon-small" alt="clear" src={clearIcon} />
+    <span class="btn-text">{$t('topbar.clearConversation', { default: 'Clear' })}</span>
   </button>
   <button on:click={openSettings} class="btn-custom">
     <img class="icon-small" alt={$t('topbar.setting')} src={settingIcon} />

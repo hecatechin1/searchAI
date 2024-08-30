@@ -25,7 +25,8 @@
     "topbar": {
       "title": "AI Answer",
       "newChat": "New Chat",
-      "setting": "Settings"
+      "setting": "Settings",
+      "clearConversation":"Clear"
     },
     "app": {
       "title": "AI Answer",
