@@ -1,27 +1,24 @@
 <script lang="ts">
   import { t } from 'svelte-i18n';
   import { createEventDispatcher } from "svelte";
-  import { menuVisible } from "../stores/stores";
-  // import MenuIcon from "../assets/menu.svg";
   import addIcon from "../assets/ainewchat.svg";
   import settingIcon from "../assets/aisettings.svg";
-  import {
-    settingsVisible,
-    helpVisible,
-  } from "../stores/stores";
+  // import { settingsVisible } from "../stores/stores";
 
   const dispatch = createEventDispatcher();
-  function newChat() {
-    dispatch("new-chat");
+  
+  // function newChat() {
+  //   dispatch("new-chat");
+  // }
+
+  // 显示settings
+  function openSettings() {
+    //settingsVisible.set(true);
   }
 
-  function openSettings() {
-    helpVisible.set(false);
-    settingsVisible.set(true);
-  }
-  function openHelp() {
-    settingsVisible.set(false);
-    helpVisible.set(true);
+  //清空当前聊天
+  function clearConversation() {
+
   }
 
   export let conversation_title: string;
@@ -42,9 +39,13 @@
     {conversation_title === "" ? $t('topbar.title') : conversation_title}
   </div>
   <div class="flex gap-2 items-center">
-  <button on:click={newChat} class="btn-custom">
+  <!-- <button on:click={newChat} class="btn-custom">
     <img class="icon-small" alt="+" src={addIcon} />
     <span class="btn-text">{$t('topbar.newChat')}</span>
+  </button> -->
+  <button on:click={clearConversation} class="btn-custom">
+    <img class="icon-small" alt="clear" src={addIcon} />
+    <span class="btn-text">{$t('topbar.setting', { default: 'Settings' })}</span>
   </button>
   <button on:click={openSettings} class="btn-custom">
     <img class="icon-small" alt={$t('topbar.setting')} src={settingIcon} />
