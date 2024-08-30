@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "設定",
+      "language": "言語",
+      "whenask": {
+        "title": "AIにいつ質問するか",
+        "afterQmark": "'?'を入力した後のみ質問",
+        "askMannually": "手動で質問",
+        "askAnytime": "常に質問"
+      },
+      "mode": "AI応答モデル",
+      "sendKey": "チャット送信キー",
+      "customKey": "カスタム",
+      "lineBreakKey": "改行キー",
+      "switchMode": "モデル切り替え",
+      "newChat": "新しいチャット",
+      "currentV": "現在のバージョン",
+      "termsText": "利用規約とプライバシーポリシー",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "ユーザーサポート",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "保存",
+      "help": "ヘルプ"
+    },
+    "topbar": {
+      "title": "AI応答",
+      "newChat": "新しいチャット",
+      "setting": "設定"
+    },
+    "app": {
+      "title": "AI応答",
+      "assistantname": "AI応答",
+      "username": "あなた",
+      "cancel": "キャンセル",
+      "submit": "送信",
+      "imageSaveHint": "この画像は60分間利用可能です。右クリック + 名前を付けて保存！",
+      "copy": "コピー",
+      "retry": "再試行",
+      "delete": "削除",
+      "edit": "編集",
+      "like": "良い",
+      "dislike": "間違い",
+      "noConversation": "会話が選択されていません。新しい会話を開始してください。",
+      "textareaPlaceholder": "AIへの質問をここに入力し、Enterで送信し、Shift + Enterで改行します"
+    },
+    "code": {
+      "copy": "コードをコピー",
+      "copied": "コピーしました"
+    }
+  }
+  

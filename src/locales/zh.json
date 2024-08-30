@@ -1,0 +1,50 @@
+{
+    "settings": {
+      "title": "设置",
+      "language": "Language",
+      "whenask": {
+        "title": "何时询问AI",
+        "afterQmark": "只在输入'?'后询问",
+        "askMannually": "手动发送消息询问",
+        "askAnytime": "总是询问"
+      },
+      "mode": "AI回答模型",
+      "sendKey": "聊天发送键",
+      "customKey": "自定义",
+      "lineBreakKey": "换行",
+      "switchMode": "切换模型",
+      "newChat": "新聊天",
+      "currentV": "当前版本",
+      "termsText": "条款和隐私协议",
+      "termsLink": "https://maxthon.com/zh/docs/aisearchterms",
+      "userSupport": "用户支持",
+      "userSupportEmail": "support-pc@maxthon.net",
+      "save": "保存",
+      "help": "帮助"
+    },
+    "topbar": {
+      "title": "AI 回答",
+      "newChat": "新聊天",
+      "setting": "设置"
+    },
+    "app": {
+      "title": "AI 回答",
+      "assistantname": "AI 回答",
+      "username": "你",
+      "cancel": "取消",
+      "submit": "提交",
+      "imageSaveHint": "此图像将在 60 分钟后失效。右键单击并另存为！",
+      "copy": "复制",
+      "retry": "重试",
+      "delete": "删除",
+      "edit": "编辑",
+      "like": "有帮助",
+      "dislike": "错误",
+      "noConversation": "未选择对话。开始新对话。",
+      "textareaPlaceholder": "在此输入您的问题，按 Enter 发送，按 Shift + Enter 换行"
+    },
+    "code": {
+      "copy": "复制代码",
+      "copied": "已复制"
+    }
+  }

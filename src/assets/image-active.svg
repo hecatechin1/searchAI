@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14.597" height="15.205" viewBox="0 0 14.597 15.205">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e7eced"/>
+      <stop offset="1" stop-color="#e7eced" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="image-active" transform="translate(-39.385 -19.692)">
+    <path id="路径_4084" data-name="路径 4084" d="M39.385,19.692h14.6V31.856h-14.6Z" fill="#424a60"/>
+    <path id="路径_4085" data-name="路径 4085" d="M187.107,178.62m-1.389,0a1.389,1.389,0,1,0,1.389-1.389A1.389,1.389,0,0,0,185.718,178.62Z" transform="translate(-144.073 -155.106)" fill="#efce4a"/>
+    <path id="路径_4086" data-name="路径 4086" d="M39.385,807.385h14.6v3.041h-14.6Z" transform="translate(0 -775.529)" fill="url(#linear-gradient)"/>
+    <path id="路径_4087" data-name="路径 4087" d="M509.3,397.529l-.3-.338-3.649-3.345-3.193,3.5,1.667,1.667,1.222,1.222H509.3Z" transform="translate(-455.319 -368.376)" fill="#1a9172"/>
+    <path id="路径_4088" data-name="路径 4088" d="M67.586,515.67l-3.335-3.335-5.175,4.556h9.731Z" transform="translate(-19.388 -485.035)" fill="#25ae88"/>
+  </g>
+</svg>

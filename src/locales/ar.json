@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "الإعدادات",
+      "language": "اللغة",
+      "whenask": {
+        "title": "متى تسأل الذكاء الاصطناعي",
+        "afterQmark": "اسأل فقط بعد إدخال '?'",
+        "askMannually": "اسأل يدويا",
+        "askAnytime": "اسأل دائما"
+      },
+      "mode": "نموذج استجابة الذكاء الاصطناعي",
+      "sendKey": "مفتاح إرسال الدردشة",
+      "customKey": "مخصص",
+      "lineBreakKey": "مفتاح السطر الجديد",
+      "switchMode": "تبديل النموذج",
+      "newChat": "دردشة جديدة",
+      "currentV": "الإصدار الحالي",
+      "termsText": "الشروط وسياسة الخصوصية",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "دعم المستخدم",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "حفظ",
+      "help": "مساعدة"
+    },
+    "topbar": {
+      "title": "إجابة الذكاء الاصطناعي",
+      "newChat": "دردشة جديدة",
+      "setting": "الإعدادات"
+    },
+    "app": {
+      "title": "إجابة الذكاء الاصطناعي",
+      "assistantname": "إجابة الذكاء الاصطناعي",
+      "username": "أنت",
+      "cancel": "إلغاء",
+      "submit": "إرسال",
+      "imageSaveHint": "ستكون هذه الصورة متاحة لمدة 60 دقيقة. انقر بزر الماوس الأيمن + حفظ باسم!",
+      "copy": "نسخ",
+      "retry": "إعادة المحاولة",
+      "delete": "حذف",
+      "edit": "تحرير",
+      "like": "مفيد",
+      "dislike": "خاطئ",
+      "noConversation": "لم يتم تحديد محادثة. ابدأ محادثة جديدة.",
+      "textareaPlaceholder": "أدخل سؤالك للذكاء الاصطناعي هنا، اضغط Enter للإرسال، وShift + Enter للانتقال إلى سطر جديد"
+    },
+    "code": {
+      "copy": "نسخ الكود",
+      "copied": "تم النسخ"
+    }
+  }
+  

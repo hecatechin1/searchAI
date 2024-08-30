@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "Asetukset",
+      "language": "Kieli",
+      "whenask": {
+        "title": "Milloin kysyä AI:ta",
+        "afterQmark": "Kysy vain sen jälkeen, kun '?' on syötetty",
+        "askMannually": "Kysy manuaalisesti",
+        "askAnytime": "Kysy aina"
+      },
+      "mode": "AI-vastausmalli",
+      "sendKey": "Chatin lähetysnäppäin",
+      "customKey": "Mukautettu",
+      "lineBreakKey": "Rivinvaihtonäppäin",
+      "switchMode": "Vaihda mallia",
+      "newChat": "Uusi chat",
+      "currentV": "Nykyinen versio",
+      "termsText": "Ehdot ja tietosuojakäytäntö",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "Käyttäjätuki",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "Tallenna",
+      "help": "Ohje"
+    },
+    "topbar": {
+      "title": "AI-vastaus",
+      "newChat": "Uusi chat",
+      "setting": "Asetukset"
+    },
+    "app": {
+      "title": "AI-vastaus",
+      "assistantname": "AI-vastaus",
+      "username": "Sinä",
+      "cancel": "Peruuta",
+      "submit": "Lähetä",
+      "imageSaveHint": "Tämä kuva on saatavilla 60 minuuttia. Napsauta hiiren kakkospainikkeella + tallenna nimellä!",
+      "copy": "Kopioi",
+      "retry": "Yritä uudelleen",
+      "delete": "Poista",
+      "edit": "Muokkaa",
+      "like": "Hyvä",
+      "dislike": "Väärin",
+      "noConversation": "Keskustelua ei ole valittu. Aloita uusi keskustelu.",
+      "textareaPlaceholder": "Syötä AI:lle kysymyksesi tähän, paina Enter lähettääksesi ja Shift + Enter rivinvaihtoa varten"
+    },
+    "code": {
+      "copy": "Kopioi koodi",
+      "copied": "Kopioitu"
+    }
+  }
+  

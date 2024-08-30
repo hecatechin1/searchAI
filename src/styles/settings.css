@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fixed {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  /* Center the settings window horizontally and vertically */
+  .min-h-screen {
+    min-height: calc(100vh - 4rem);
+  }
+
+  /* Adjust the width of the settings window */
+  .bg-white {
+    width: 24rem;
+  }
+
+  /* Add some padding to the text input */
+  .border {
+    padding: 0.5rem;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation-name: fadeIn;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+  }
+  input:checked ~ .dot {
+    transform: translateX(1.5rem);
+    background-color: #8ee78e;
+  }
+
+  .setting-items::-webkit-scrollbar{
+    transform: translateX(-0.5rem);
+  }
+
+  .setting-items{
+    @apply  w-full overflow-y-auto h-[calc(90vh_-_9.75rem)] px-4 sm:px-8;
+  }
+
+  .setting-item-group{
+    @apply w-full bg-white text-black rounded-lg shadow-md mb-4 border border-themegreyborder;
+    width: 100% !important;
+  }
+
+  .setting-item{
+    @apply  flex flex-wrap sm:justify-between items-center mx-2 py-2
+  }
+
+  .setting-item select {
+    @apply bg-secondary rounded-lg p-1 min-w-[6rem] border border-themegreyborder;
+  }
+  
+  .setting-lable{
+    @apply mr-5 whitespace-nowrap leading-[2]
+  }
+  .setting-item select:focus-visible {
+    @apply outline-themegreen;
+  }
+
+  .setting-item select option{
+    @apply pr-8
+  }

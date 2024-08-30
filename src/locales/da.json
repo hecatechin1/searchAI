@@ -1,0 +1,50 @@
+{
+  "settings": {
+    "title": "Indstillinger",
+    "language": "Sprog",
+    "whenask": {
+      "title": "Hvornår man skal spørge AI",
+      "afterQmark": "Spørg kun efter at have indtastet '?'",
+      "askMannually": "Spørg manuelt",
+      "askAnytime": "Spørg altid"
+    },
+    "mode": "AI-svarmodel",
+    "sendKey": "Sendetast til chat",
+    "customKey": "Tilpasset",
+    "lineBreakKey": "Linjeskifttast",
+    "switchMode": "Skift model",
+    "newChat": "Ny chat",
+    "currentV": "Nuværende version",
+    "termsText": "Vilkår og privatlivspolitik",
+    "termsLink": "https://maxthon.com/docs/aisearchterms",
+    "userSupport": "Brugersupport",
+    "userSupportEmail": "help@maxthon.com",
+    "save": "Gem",
+    "help": "Hjælp"
+  },
+  "topbar": {
+    "title": "AI-svar",
+    "newChat": "Ny chat",
+    "setting": "Indstillinger"
+  },
+  "app": {
+    "title": "AI-svar",
+    "assistantname": "AI-svar",
+    "username": "Du",
+    "cancel": "Annuller",
+    "submit": "Indsend",
+    "imageSaveHint": "Dette billede vil være tilgængeligt i 60 minutter. Højreklik + gem som!",
+    "copy": "Kopiér",
+    "retry": "Prøv igen",
+    "delete": "Slet",
+    "edit": "Rediger",
+    "like": "Godt",
+    "dislike": "Forkert",
+    "noConversation": "Ingen samtale valgt. Start en ny samtale.",
+    "textareaPlaceholder": "Indtast dit spørgsmål til AI her, tryk Enter for at sende, og Shift + Enter for linjeskift"
+  },
+  "code": {
+    "copy": "Kopiér kode",
+    "copied": "Kopieret"
+  }
+}

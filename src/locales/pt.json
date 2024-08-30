@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "Configurações",
+      "language": "Idioma",
+      "whenask": {
+        "title": "Quando perguntar à IA",
+        "afterQmark": "Perguntar apenas após digitar '?'",
+        "askMannually": "Perguntar manualmente",
+        "askAnytime": "Sempre perguntar"
+      },
+      "mode": "Modelo de Resposta da IA",
+      "sendKey": "Tecla de Envio do Chat",
+      "customKey": "Personalizado",
+      "lineBreakKey": "Tecla de Quebra de Linha",
+      "switchMode": "Trocar Modelo",
+      "newChat": "Novo Chat",
+      "currentV": "Versão Atual",
+      "termsText": "Termos e Política de Privacidade",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "Suporte ao Usuário",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "Salvar",
+      "help": "Ajuda"
+    },
+    "topbar": {
+      "title": "Resposta da IA",
+      "newChat": "Novo Chat",
+      "setting": "Configurações"
+    },
+    "app": {
+      "title": "Resposta da IA",
+      "assistantname": "Resposta da IA",
+      "username": "Você",
+      "cancel": "Cancelar",
+      "submit": "Enviar",
+      "imageSaveHint": "Esta imagem estará disponível por 60 minutos. Clique com o botão direito + salvar como!",
+      "copy": "Copiar",
+      "retry": "Tentar novamente",
+      "delete": "Excluir",
+      "edit": "Editar",
+      "like": "Bom",
+      "dislike": "Errado",
+      "noConversation": "Nenhuma conversa selecionada. Inicie uma nova conversa.",
+      "textareaPlaceholder": "Digite sua pergunta para a IA aqui, pressione Enter para enviar e Shift + Enter para quebra de linha"
+    },
+    "code": {
+      "copy": "Copiar Código",
+      "copied": "Copiado"
+    }
+  }
+  

@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "การตั้งค่า",
+      "language": "ภาษา",
+      "whenask": {
+        "title": "เมื่อไหร่ที่จะถาม AI",
+        "afterQmark": "ถามเฉพาะหลังจากที่ป้อน '?'",
+        "askMannually": "ถามด้วยตนเอง",
+        "askAnytime": "ถามเสมอ"
+      },
+      "mode": "รูปแบบการตอบของ AI",
+      "sendKey": "ปุ่มส่งแชท",
+      "customKey": "ปรับแต่ง",
+      "lineBreakKey": "ปุ่มเว้นบรรทัด",
+      "switchMode": "สลับรูปแบบ",
+      "newChat": "แชทใหม่",
+      "currentV": "เวอร์ชั่นปัจจุบัน",
+      "termsText": "ข้อกำหนดและนโยบายความเป็นส่วนตัว",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "การสนับสนุนผู้ใช้",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "บันทึก",
+      "help": "ช่วยเหลือ"
+    },
+    "topbar": {
+      "title": "คำตอบจาก AI",
+      "newChat": "แชทใหม่",
+      "setting": "การตั้งค่า"
+    },
+    "app": {
+      "title": "คำตอบจาก AI",
+      "assistantname": "คำตอบจาก AI",
+      "username": "คุณ",
+      "cancel": "ยกเลิก",
+      "submit": "ส่ง",
+      "imageSaveHint": "ภาพนี้จะสามารถใช้งานได้เป็นเวลา 60 นาที คลิกขวา + บันทึกเป็น!",
+      "copy": "คัดลอก",
+      "retry": "ลองอีกครั้ง",
+      "delete": "ลบ",
+      "edit": "แก้ไข",
+      "like": "ดี",
+      "dislike": "ผิด",
+      "noConversation": "ไม่มีการสนทนาเลือก เริ่มต้นการสนทนาใหม่",
+      "textareaPlaceholder": "ป้อนคำถามของคุณให้กับ AI ที่นี่ กด Enter เพื่อส่งและ Shift + Enter เพื่อเว้นบรรทัด"
+    },
+    "code": {
+      "copy": "คัดลอกโค้ด",
+      "copied": "คัดลอกแล้ว"
+    }
+  }
+  

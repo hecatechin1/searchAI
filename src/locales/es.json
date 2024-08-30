@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "Configuración",
+      "language": "Idioma",
+      "whenask": {
+        "title": "Cuándo preguntar a AI",
+        "afterQmark": "Preguntar solo después de ingresar '?'",
+        "askMannually": "Preguntar manualmente",
+        "askAnytime": "Preguntar siempre"
+      },
+      "mode": "Modelo de Respuesta de AI",
+      "sendKey": "Tecla para Enviar Chat",
+      "customKey": "Personalizado",
+      "lineBreakKey": "Tecla de Salto de Línea",
+      "switchMode": "Cambiar Modelo",
+      "newChat": "Nuevo Chat",
+      "currentV": "Versión Actual",
+      "termsText": "Términos y Política de Privacidad",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "Soporte al Usuario",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "Guardar",
+      "help": "Ayuda"
+    },
+    "topbar": {
+      "title": "Respuesta AI",
+      "newChat": "Nuevo Chat",
+      "setting": "Configuración"
+    },
+    "app": {
+      "title": "Respuesta AI",
+      "assistantname": "Respuesta AI",
+      "username": "Tú",
+      "cancel": "Cancelar",
+      "submit": "Enviar",
+      "imageSaveHint": "Esta imagen estará disponible por 60 minutos. Haz clic derecho + guardar como!",
+      "copy": "Copiar",
+      "retry": "Reintentar",
+      "delete": "Eliminar",
+      "edit": "Editar",
+      "like": "Útil",
+      "dislike": "Incorrecto",
+      "noConversation": "No se ha seleccionado una conversación. Inicia una nueva conversación.",
+      "textareaPlaceholder": "Ingresa tu pregunta para AI aquí, presiona Enter para enviar, y Shift + Enter para salto de línea"
+    },
+    "code": {
+      "copy": "Copiar Código",
+      "copied": "Copiado"
+    }
+  }
+  

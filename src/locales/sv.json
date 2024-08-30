@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "Inställningar",
+      "language": "Språk",
+      "whenask": {
+        "title": "När ska du fråga AI",
+        "afterQmark": "Fråga bara efter att ha angett '?'",
+        "askMannually": "Fråga manuellt",
+        "askAnytime": "Fråga alltid"
+      },
+      "mode": "AI-svarmodell",
+      "sendKey": "Skicka chattnyckel",
+      "customKey": "Anpassad",
+      "lineBreakKey": "Radbrytningsnyckel",
+      "switchMode": "Byt modell",
+      "newChat": "Ny chatt",
+      "currentV": "Nuvarande version",
+      "termsText": "Villkor och sekretesspolicy",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "Användarsupport",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "Spara",
+      "help": "Hjälp"
+    },
+    "topbar": {
+      "title": "AI-svar",
+      "newChat": "Ny chatt",
+      "setting": "Inställningar"
+    },
+    "app": {
+      "title": "AI-svar",
+      "assistantname": "AI-svar",
+      "username": "Du",
+      "cancel": "Avbryt",
+      "submit": "Skicka",
+      "imageSaveHint": "Den här bilden kommer att vara tillgänglig i 60 minuter. Högerklicka + spara som!",
+      "copy": "Kopiera",
+      "retry": "Försök igen",
+      "delete": "Radera",
+      "edit": "Redigera",
+      "like": "Bra",
+      "dislike": "Fel",
+      "noConversation": "Ingen konversation vald. Starta en ny konversation.",
+      "textareaPlaceholder": "Skriv in din fråga till AI här, tryck på Enter för att skicka och Shift + Enter för att radbryta"
+    },
+    "code": {
+      "copy": "Kopiera kod",
+      "copied": "Kopierad"
+    }
+  }
+  

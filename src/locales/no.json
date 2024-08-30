@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "Innstillinger",
+      "language": "Språk",
+      "whenask": {
+        "title": "Når spørre AI",
+        "afterQmark": "Spør bare etter å ha skrevet '?'",
+        "askMannually": "Spør manuelt",
+        "askAnytime": "Spør alltid"
+      },
+      "mode": "AI-svarmodell",
+      "sendKey": "Chat-sendtast",
+      "customKey": "Tilpasset",
+      "lineBreakKey": "Linjeskifttast",
+      "switchMode": "Bytt modell",
+      "newChat": "Ny chat",
+      "currentV": "Gjeldende versjon",
+      "termsText": "Vilkår og personvernpolicy",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "Brukerstøtte",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "Lagre",
+      "help": "Hjelp"
+    },
+    "topbar": {
+      "title": "AI-svar",
+      "newChat": "Ny chat",
+      "setting": "Innstillinger"
+    },
+    "app": {
+      "title": "AI-svar",
+      "assistantname": "AI-svar",
+      "username": "Du",
+      "cancel": "Avbryt",
+      "submit": "Send inn",
+      "imageSaveHint": "Dette bildet vil være tilgjengelig i 60 minutter. Høyreklikk + lagre som!",
+      "copy": "Kopier",
+      "retry": "Prøv igjen",
+      "delete": "Slett",
+      "edit": "Rediger",
+      "like": "Bra",
+      "dislike": "Feil",
+      "noConversation": "Ingen samtale valgt. Start en ny samtale.",
+      "textareaPlaceholder": "Skriv inn spørsmålet ditt til AI her, trykk Enter for å sende, og Shift + Enter for linjeskift"
+    },
+    "code": {
+      "copy": "Kopier kode",
+      "copied": "Kopiert"
+    }
+  }
+  

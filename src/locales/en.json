@@ -1,0 +1,60 @@
+{
+    "settings": {
+      "title": "Settings",
+      "language": "Language",
+      "whenask": {
+        "title": "When to Ask AI",
+        "afterQmark": "Ask only after entering '?'",
+        "askMannually": "Ask manually",
+        "askAnytime": "Always ask"
+      },
+      "mode": "AI Response Model",
+      "sendKey": "Chat Send Key",
+      "customKey": "Custom",
+      "lineBreakKey": "Line Break Key",
+      "switchMode": "Switch Model",
+      "newChat": "New Chat",
+      "currentV": "Current Version",
+      "termsText": "Terms and Privacy Policy",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "User Support",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "Save",
+      "help": "Help"
+    },
+    "topbar": {
+      "title": "AI Answer",
+      "newChat": "New Chat",
+      "setting": "Settings"
+    },
+    "app": {
+      "title": "AI Answer",
+      "assistantname": "AI Answer",
+      "username": "You",
+      "cancel": "Cancel",
+      "submit": "Submit",
+      "imageSaveHint": "This image will be available for 60 minutes. Right click + save as!",
+      "copy": "Copy",
+      "retry": "Retry",
+      "delete": "Delete",
+      "edit": "Edit",
+      "like": "Great",
+      "dislike": "Wrong",
+      "noConversation": "No conversation selected. Start a new conversation.",
+      "textareaPlaceholder": "Enter your question for AI here, Enter to send, and Shift + Enter to line break",
+      "errorMessage": "There was an error. Maybe the API key is wrong? Or the servers could be down?",
+      "apiInitialized": "OpenAI API initialized.",
+      "apiKeyNotSet": "API key is not set. Please set the API key before initializing.",
+      "apiNotInitialized": "OpenAI API is not initialized. Please call initOpenAIApi with your API key first.",
+      "apiRetrieved": "OpenAI API retrieved.",
+      "sendingChatCompletionRequest": "Sending chat completion request...",
+      "chatCompletionResponseReceived": "Chat completion response received.",
+      "errorInChatCompletion": "Error in createChatCompletion:",
+      "checkingApiConfiguration": "Checking if OpenAI API is configured.",
+      "configurationReloaded": "Configuration reloaded."
+    },
+    "code": {
+      "copy": "Copy Code",
+      "copied": "Copied"
+    }
+  }

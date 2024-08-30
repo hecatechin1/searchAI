@@ -1,0 +1,50 @@
+{
+    "settings": {
+      "title": "Einstellungen",
+      "language": "Sprache",
+      "whenask": {
+        "title": "Wann AI fragen",
+        "afterQmark": "Nur nach Eingabe von '?' fragen",
+        "askMannually": "Manuell fragen",
+        "askAnytime": "Immer fragen"
+      },
+      "mode": "AI-Antwortmodell",
+      "sendKey": "Chat-Sendetaste",
+      "customKey": "Benutzerdefiniert",
+      "lineBreakKey": "Zeilenumbruch-Taste",
+      "switchMode": "Modell wechseln",
+      "newChat": "Neuer Chat",
+      "currentV": "Aktuelle Version",
+      "termsText": "Nutzungsbedingungen und Datenschutzrichtlinie",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "Benutzerunterstützung",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "Speichern",
+      "help": "Hilfe"
+    },
+    "topbar": {
+      "title": "AI Antwort",
+      "newChat": "Neuer Chat",
+      "setting": "Einstellungen"
+    },
+    "app": {
+      "title": "AI Antwort",
+      "assistantname": "AI Antwort",
+      "username": "Du",
+      "cancel": "Abbrechen",
+      "submit": "Senden",
+      "imageSaveHint": "Dieses Bild ist für 60 Minuten verfügbar. Rechtsklick + speichern unter!",
+      "copy": "Kopieren",
+      "retry": "Erneut versuchen",
+      "delete": "Löschen",
+      "edit": "Bearbeiten",
+      "like": "Gut",
+      "dislike": "Falsch",
+      "noConversation": "Keine Unterhaltung ausgewählt. Starten Sie eine neue Unterhaltung.",
+      "textareaPlaceholder": "Geben Sie hier Ihre Frage an die AI ein, drücken Sie Enter zum Senden, und Shift + Enter für einen Zeilenumbruch"
+    },
+    "code": {
+      "copy": "Code kopieren",
+      "copied": "Kopiert"
+    }
+  }

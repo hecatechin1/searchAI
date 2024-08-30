@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "설정",
+      "language": "언어",
+      "whenask": {
+        "title": "AI에게 물어볼 때",
+        "afterQmark": "'?' 입력 후에만 물어보기",
+        "askMannually": "수동으로 질문하기",
+        "askAnytime": "항상 물어보기"
+      },
+      "mode": "AI 응답 모델",
+      "sendKey": "채팅 전송 키",
+      "customKey": "사용자 정의",
+      "lineBreakKey": "줄 바꿈 키",
+      "switchMode": "모델 전환",
+      "newChat": "새 채팅",
+      "currentV": "현재 버전",
+      "termsText": "이용 약관 및 개인정보 보호정책",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "사용자 지원",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "저장",
+      "help": "도움말"
+    },
+    "topbar": {
+      "title": "AI 응답",
+      "newChat": "새 채팅",
+      "setting": "설정"
+    },
+    "app": {
+      "title": "AI 응답",
+      "assistantname": "AI 응답",
+      "username": "당신",
+      "cancel": "취소",
+      "submit": "제출",
+      "imageSaveHint": "이 이미지는 60분 동안 사용할 수 있습니다. 오른쪽 클릭 + 다른 이름으로 저장!",
+      "copy": "복사",
+      "retry": "재시도",
+      "delete": "삭제",
+      "edit": "편집",
+      "like": "좋음",
+      "dislike": "잘못된",
+      "noConversation": "선택된 대화가 없습니다. 새 대화를 시작하세요.",
+      "textareaPlaceholder": "AI에게 질문을 입력하세요. Enter 키를 눌러 전송하고, Shift + Enter 키로 줄 바꿈"
+    },
+    "code": {
+      "copy": "코드 복사",
+      "copied": "복사됨"
+    }
+  }
+  

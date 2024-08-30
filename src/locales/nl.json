@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "Instellingen",
+      "language": "Taal",
+      "whenask": {
+        "title": "Wanneer AI vragen",
+        "afterQmark": "Alleen vragen na het invoeren van '?'",
+        "askMannually": "Handmatig vragen",
+        "askAnytime": "Altijd vragen"
+      },
+      "mode": "AI Antwoordmodel",
+      "sendKey": "Verzendtoets Chat",
+      "customKey": "Aangepast",
+      "lineBreakKey": "Regelomschakelingstoets",
+      "switchMode": "Model wisselen",
+      "newChat": "Nieuwe Chat",
+      "currentV": "Huidige Versie",
+      "termsText": "Voorwaarden en Privacybeleid",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "Gebruikerssupport",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "Opslaan",
+      "help": "Help"
+    },
+    "topbar": {
+      "title": "AI Antwoord",
+      "newChat": "Nieuwe Chat",
+      "setting": "Instellingen"
+    },
+    "app": {
+      "title": "AI Antwoord",
+      "assistantname": "AI Antwoord",
+      "username": "Jij",
+      "cancel": "Annuleren",
+      "submit": "Verzenden",
+      "imageSaveHint": "Deze afbeelding is 60 minuten beschikbaar. Rechtsklik + opslaan als!",
+      "copy": "Kopieer",
+      "retry": "Opnieuw proberen",
+      "delete": "Verwijderen",
+      "edit": "Bewerken",
+      "like": "Goed",
+      "dislike": "Fout",
+      "noConversation": "Geen gesprek geselecteerd. Begin een nieuw gesprek.",
+      "textareaPlaceholder": "Voer hier uw vraag aan AI in, druk op Enter om te verzenden en Shift + Enter om een regelomslag te maken"
+    },
+    "code": {
+      "copy": "Kopieer Code",
+      "copied": "Gekopieerd"
+    }
+  }
+  

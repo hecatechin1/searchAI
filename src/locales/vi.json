@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "Cài đặt",
+      "language": "Ngôn ngữ",
+      "whenask": {
+        "title": "Khi nào hỏi AI",
+        "afterQmark": "Chỉ hỏi sau khi nhập '?'",
+        "askMannually": "Hỏi thủ công",
+        "askAnytime": "Luôn hỏi"
+      },
+      "mode": "Mô hình trả lời của AI",
+      "sendKey": "Phím gửi trò chuyện",
+      "customKey": "Tùy chỉnh",
+      "lineBreakKey": "Phím xuống dòng",
+      "switchMode": "Chuyển đổi mô hình",
+      "newChat": "Trò chuyện mới",
+      "currentV": "Phiên bản hiện tại",
+      "termsText": "Điều khoản và Chính sách Bảo mật",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "Hỗ trợ người dùng",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "Lưu",
+      "help": "Trợ giúp"
+    },
+    "topbar": {
+      "title": "Trả lời AI",
+      "newChat": "Trò chuyện mới",
+      "setting": "Cài đặt"
+    },
+    "app": {
+      "title": "Trả lời AI",
+      "assistantname": "Trả lời AI",
+      "username": "Bạn",
+      "cancel": "Hủy bỏ",
+      "submit": "Gửi",
+      "imageSaveHint": "Hình ảnh này sẽ có sẵn trong 60 phút. Nhấp chuột phải + lưu dưới dạng!",
+      "copy": "Sao chép",
+      "retry": "Thử lại",
+      "delete": "Xóa",
+      "edit": "Chỉnh sửa",
+      "like": "Tốt",
+      "dislike": "Sai",
+      "noConversation": "Không có cuộc trò chuyện nào được chọn. Bắt đầu một cuộc trò chuyện mới.",
+      "textareaPlaceholder": "Nhập câu hỏi của bạn cho AI tại đây, nhấn Enter để gửi và Shift + Enter để xuống dòng"
+    },
+    "code": {
+      "copy": "Sao chép mã",
+      "copied": "Đã sao chép"
+    }
+  }
+  

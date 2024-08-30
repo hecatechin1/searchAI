@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "सेटिंग्स",
+      "language": "भाषा",
+      "whenask": {
+        "title": "AI से कब पूछें",
+        "afterQmark": "केवल '?' दर्ज करने के बाद पूछें",
+        "askMannually": "मैन्युअल रूप से पूछें",
+        "askAnytime": "हमेशा पूछें"
+      },
+      "mode": "AI प्रतिक्रिया मॉडल",
+      "sendKey": "चैट भेजने की कुंजी",
+      "customKey": "कस्टम",
+      "lineBreakKey": "लाइन ब्रेक कुंजी",
+      "switchMode": "मॉडल बदलें",
+      "newChat": "नई चैट",
+      "currentV": "वर्तमान संस्करण",
+      "termsText": "नियम और गोपनीयता नीति",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "उपयोगकर्ता समर्थन",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "सेव",
+      "help": "सहायता"
+    },
+    "topbar": {
+      "title": "AI उत्तर",
+      "newChat": "नई चैट",
+      "setting": "सेटिंग्स"
+    },
+    "app": {
+      "title": "AI उत्तर",
+      "assistantname": "AI उत्तर",
+      "username": "आप",
+      "cancel": "रद्द करें",
+      "submit": "सबमिट करें",
+      "imageSaveHint": "यह छवि 60 मिनट के लिए उपलब्ध होगी। राइट क्लिक + सेव एज़!",
+      "copy": "कॉपी करें",
+      "retry": "पुनः प्रयास करें",
+      "delete": "हटाएं",
+      "edit": "संपादित करें",
+      "like": "अच्छा",
+      "dislike": "गलत",
+      "noConversation": "कोई वार्तालाप चयनित नहीं किया गया है। एक नई बातचीत शुरू करें।",
+      "textareaPlaceholder": "AI के लिए अपना प्रश्न यहाँ दर्ज करें, भेजने के लिए Enter दबाएं, और लाइन ब्रेक के लिए Shift + Enter दबाएं"
+    },
+    "code": {
+      "copy": "कोड कॉपी करें",
+      "copied": "कॉपी किया गया"
+    }
+  }
+  

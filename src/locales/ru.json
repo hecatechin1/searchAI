@@ -1,0 +1,51 @@
+{
+    "settings": {
+      "title": "Настройки",
+      "language": "Язык",
+      "whenask": {
+        "title": "Когда спрашивать AI",
+        "afterQmark": "Спрашивать только после ввода '?'",
+        "askMannually": "Спрашивать вручную",
+        "askAnytime": "Всегда спрашивать"
+      },
+      "mode": "Модель ответа AI",
+      "sendKey": "Клавиша отправки чата",
+      "customKey": "Пользовательский",
+      "lineBreakKey": "Клавиша переноса строки",
+      "switchMode": "Переключить модель",
+      "newChat": "Новый чат",
+      "currentV": "Текущая версия",
+      "termsText": "Условия и политика конфиденциальности",
+      "termsLink": "https://maxthon.com/docs/aisearchterms",
+      "userSupport": "Поддержка пользователей",
+      "userSupportEmail": "help@maxthon.com",
+      "save": "Сохранить",
+      "help": "Помощь"
+    },
+    "topbar": {
+      "title": "Ответ AI",
+      "newChat": "Новый чат",
+      "setting": "Настройки"
+    },
+    "app": {
+      "title": "Ответ AI",
+      "assistantname": "Ответ AI",
+      "username": "Вы",
+      "cancel": "Отмена",
+      "submit": "Отправить",
+      "imageSaveHint": "Это изображение будет доступно в течение 60 минут. Щелкните правой кнопкой мыши + сохранить как!",
+      "copy": "Копировать",
+      "retry": "Повторить",
+      "delete": "Удалить",
+      "edit": "Редактировать",
+      "like": "Хорошо",
+      "dislike": "Неправильно",
+      "noConversation": "Разговор не выбран. Начните новый разговор.",
+      "textareaPlaceholder": "Введите ваш вопрос для AI здесь, нажмите Enter для отправки и Shift + Enter для переноса строки"
+    },
+    "code": {
+      "copy": "Копировать код",
+      "copied": "Скопировано"
+    }
+  }
+  

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <g id="upload-icon" transform="translate(-1264 -819)">
+    <g id="sendpdf-default" transform="translate(0 144)">
+      <rect id="矩形_3687" data-name="矩形 3687" width="36" height="36" rx="6" transform="translate(1264 675)" fill="none"/>
+    </g>
+    <g id="upload-icon-2" data-name="upload-icon" transform="translate(1271 826.178)">
+      <path id="路径_4082" data-name="路径 4082" d="M0,0H21.644V21.644H0Z" fill="none"/>
+      <path id="路径_4083" data-name="路径 4083" d="M16.747,18.512H3.843V5.608h8.3V3.765h-8.3A1.849,1.849,0,0,0,2,5.608v12.9a1.849,1.849,0,0,0,1.843,1.843h12.9a1.849,1.849,0,0,0,1.843-1.843v-8.3H16.747ZM9.733,13.7,7.927,11.522l-2.7,5.147H15.365l-3.226-8.3Zm8.857-9.932V1H16.747V3.765H13.982c.009.009,0,1.843,0,1.843h2.765V8.364c.009.009,1.843,0,1.843,0V5.608h2.765V3.765Z" transform="translate(0.288 0.144)" fill="#afb0b4"/>
+    </g>
+  </g>
+</svg>
