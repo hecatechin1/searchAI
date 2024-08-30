@@ -17,5 +17,11 @@
     "tslib": "^2.6.3",
     "typescript": "^5.5.3",
     "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "highlight.js": "^11.10.0",
+    "sse.js": "^2.5.0",
+    "svelte-i18n": "^4.0.0",
+    "svelte-markdown": "^0.4.1"
   }
 }
