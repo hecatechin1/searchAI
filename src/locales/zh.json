@@ -25,7 +25,8 @@
     "topbar": {
       "title": "AI 回答",
       "newChat": "新聊天",
-      "setting": "设置"
+      "setting": "设置",
+      "clearConversation":"清空"
     },
     "app": {
       "title": "AI 回答",
