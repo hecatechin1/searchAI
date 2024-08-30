@@ -2,23 +2,22 @@
     import { get } from "svelte/store";
     import { onMount, onDestroy } from "svelte";
     import { initApp, cleanupApp } from "./appInit";
-    import AudioPlayer from "./lib/AudioPlayer.svelte";
-    import Topbar from "./lib/Topbar.svelte";
-    import Settings from "./lib/Settings.svelte";
+    import Topbar from "../lib/Topbar.svelte";
+    import Settings from "../lib/Settings.svelte";
     import SvelteMarkdown from "svelte-markdown";
-    import CodeRenderer from "./renderers/Code.svelte";
-    import UserCodeRenderer from "./renderers/userCode.svelte";
-    import EmRenderer from "./renderers/Em.svelte";
-    import ListRenderer from "./renderers/ListRenderer.svelte";
-    import ListItemRenderer from "./renderers/ListItem.svelte";
-    import CodeSpanRenderer from "./renderers/CodeSpan.svelte";
-    import ParagraphRenderer from "./renderers/Paragraph.svelte";
+    import CodeRenderer from "../renderers/Code.svelte";
+    import UserCodeRenderer from "../renderers/userCode.svelte";
+    import EmRenderer from "../renderers/Em.svelte";
+    import ListRenderer from "../renderers/ListRenderer.svelte";
+    import ListItemRenderer from "../renderers/ListItem.svelte";
+    import CodeSpanRenderer from "../renderers/CodeSpan.svelte";
+    import ParagraphRenderer from "../renderers/Paragraph.svelte";
     import hljs from "highlight.js";
     import { marked } from "marked";
     import "highlight.js/styles/dark.css";
     import "./i18n.js";
     import { t } from "svelte-i18n";
-    import HtmlRenderer from "./renderers/Html.svelte";
+    import HtmlRenderer from "../renderers/Html.svelte";
     import DeleteIcon from "./assets/delete.svg";
     import CopyIcon from "./assets/copy.svg";
     import RetryIcon from "./assets/retry.svg";
@@ -42,14 +41,8 @@
     import { afterUpdate } from "svelte";
     import { processPDF } from "./managers/pdfManager";
     import {
-      conversations,
-      chosenConversationId,
       settingsVisible,
-      helpVisible,
-      sidebarVisible,
-      clearFileInputSignal,
-      clearPDFInputSignal,
-    } from "./stores/stores";
+    } from "../stores/stores";
     import {
       isAudioMessage,
       formatMessageForMarkdown,
