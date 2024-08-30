@@ -376,26 +376,13 @@
   {#if $settingsVisible}
     <Settings on:settings-changed={reloadConfig} />
   {/if}
-  {#if $helpVisible}
-    <Help />
-  {/if}
   
   <main class="bg-primary overflow-hidden">
-    <!-- {#if $sidebarVisible}
-      <Sidebar on:new-chat={() => newChat()} />
-    {/if} -->
   
     <div
       class="h-screen flex justify-stretch flex-col bg-secondary text-black/80 height-manager"
     >
       <Topbar bind:conversation_title={conversationTitle} on:new-chat={newChat} />
-      <!-- <div
-        class="py-5 bg-primary px-5 flex flex-row justify-between flex-wrap-reverse"
-      >
-        <div class="font-bold text-l">
-          Current Model: <span class="font-normal">{$selectedModel}</span>
-        </div>
-      </div> -->
       <div
         class="flex bg-primary overflow-y-auto overflow-x-hidden justify-center grow"
         bind:this={chatContainer}
@@ -668,7 +655,8 @@
           <div
             class="absolute textarea-btn-set flex justify-between bg-primary pb-1"
           >
-            <div class="btn">
+            <!-- 选择mode -->
+            <!-- <div class="btn">
               <select
                 bind:value={$selectedMode}
                 class="select-custom"
@@ -679,94 +667,10 @@
                 <option value="Dall-E">Dall-E</option>
                 <option value="TTS">TTS</option>
               </select>
-            </div>
+            </div> -->
+            
             <div class="flex send-btn-set flex-end items-center gap-1">
-              {#if isVisionMode}
-                <input
-                  type="file"
-                  id="imageUpload"
-                  multiple
-                  accept="image/*"
-                  on:change={handleImageUpload}
-                  bind:this={fileInputElement}
-                  class="file-input"
-                />
-                <label
-                  for="imageUpload"
-                  class="upload-files flex bg-primary rounded cursor-pointer transition-colors relative"
-                >
-                  {#if uploadedFileCount > 0}
-                    <!-- <span class="fileCount">{uploadedFileCount}</span> -->
-                    <img src={ImageActiveIcon} alt="PDF" class="w-[20px]" />
-                    <span class="ml-2 relative file-count">
-                      <!-- 数字角标 -->
-                      <span
-                        class="absolute top-[-8px] right-[-6px] rounded-full bg-red-700 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center pl-[-2px]"
-                      >
-                        {uploadedPDFCount}
-                      </span>
-                    </span>
-                    <button on:click={clearFiles} class="clear-files">
-                      <img src={ClearIcon} alt="Clear files" class="m-[4px]" />
-                    </button>
-                  {:else}
-                    <img
-                      src={UploadIcon}
-                      alt="Upload"
-                      class="pdf-icon rounded min-w-[32px] w-[32px] hover:themegreyhover"
-                    />
-                  {/if}
-                </label>
-  
-                <!-- {#if uploadedFileCount > 0}
-                  <button on:click={clearFiles} class="btn-custome">
-                    <img src={ClearIcon}  alt="Clear files" class="min-w-[32px] w-[32px]"/>
-                  </button>
-              {/if} -->
-              {:else if isGPTMode}
-                <input
-                  type="file"
-                  id="pdfUpload"
-                  accept="application/pdf"
-                  on:change={(event) => uploadPDF(event)}
-                  bind:this={pdfInputElement}
-                  class="file-input"
-                />
-  
-                <label
-                  for="pdfUpload"
-                  class="upload-files flex bg-primary rounded cursor-pointer transition-colors relative"
-                >
-                  {#if uploadedPDFCount === 0}
-                    <img
-                      src={PDFIcon}
-                      alt="PDF"
-                      class="pdf-icon rounded min-w-[32px] w-[32px] hover:themegreyhover"
-                    />
-                  {:else}
-                    <img src={PDFActiveIcon} alt="PDF" class="w-[20px]" />
-                    <span class="ml-2 relative file-count">
-                      <!-- 数字角标 -->
-                      <span
-                        class="absolute top-[-8px] right-[-6px] rounded-full bg-red-700 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center pl-[-2px]"
-                      >
-                        {uploadedPDFCount}
-                      </span>
-                    </span>
-                    <button on:click={clearFiles} class="clear-files">
-                      <img src={ClearIcon} alt="Clear files" class="m-[4px]" />
-                    </button>
-                  {/if}
-                </label>
-  
-                <!-- {#if uploadedPDFCount > 0}
-                  <button
-                    on:click={clearFiles}
-                    class="btn-custom">
-                    <img src={ClearIcon}  alt="Clear files" class=""/>
-                  </button>
-                {/if} -->
-              {/if}
+              <!-- 发送按钮 -->
               <button
                 class="file-label bg-primary rounded cursor-pointer hover:themegray transition-colors"
                 on:click={() => {
@@ -792,30 +696,6 @@
               </button>
             </div>
           </div>
-          <!-- <button class="bg-themegrey rounded py-2 px-4 mx-1 ml-0 border-t-2 border-b-2 border-r-2 border-gray-500 rounded-l-none cursor-pointer"
-            on:click={() => {
-              if ($isStreaming) {
-                closeStream();
-              } else {
-                processMessage();
-              }
-            }}
-            disabled={!$isStreaming && !input.trim().length}
-          >
-            {#if $isStreaming}
-              <img
-                class="icon-white min-w-[24px] w-[24px]"
-                alt="Wait"
-                src={WaitIcon}
-              />
-            {:else}
-              <img
-                class="icon-white min-w-[24px] w-[24px]"
-                alt="Send"
-                src={SendIcon}
-              />
-            {/if}
-          </button> -->
         </div>
       </div>
     </div>
