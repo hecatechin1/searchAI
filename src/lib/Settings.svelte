@@ -7,12 +7,15 @@
 
   //import { settingsVisible } from "../stores/stores";
   
+
+  const dispatch = createEventDispatcher();
   // 切换语言
   function changeLanguage(event) {
     locale.set(event.target.value);  
   }
 
   function handleSave() {
+    dispatch("settings-changed");
     //保存设置
   }
 

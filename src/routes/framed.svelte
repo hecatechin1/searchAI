@@ -1,7 +1,7 @@
 <script lang="ts">
     import { get } from "svelte/store";
     import { onMount, onDestroy } from "svelte";
-    import { initApp, cleanupApp } from "./appInit";
+    import { initApp, cleanupApp } from "../appInit";
     import Topbar from "../lib/Topbar.svelte";
     import Settings from "../lib/Settings.svelte";
     import SvelteMarkdown from "svelte-markdown";
@@ -28,44 +28,27 @@
     import SendIcon from "./assets/sendmessage-active.svg";
     import SendDisabledIcon from "./assets/sendmessage-default.svg";
     import WaitIcon from "./assets/stop.svg";
-    import UploadIcon from "./assets/upload-icon.svg";
-    import ImageActiveIcon from "./assets/image-active.svg";
-    import PDFIcon from "./assets/sendpdf-default.svg";
-    import PDFActiveIcon from "./assets/sendpdf-active.svg";
-    import ClearIcon from "./assets/clear.svg";
     import GPTIcon from "./assets/gpt.svg";
     import LikeIcon from "./assets/helpful.svg";
     import DislikeIcon from "./assets/unhelpful.svg";
     import LikeActiveIcon from "./assets/helpful-checked.svg";
     import DislikeActiveIcon from "./assets/unhelpful-checked.svg";
     import { afterUpdate } from "svelte";
-    import { processPDF } from "./managers/pdfManager";
     import {
       settingsVisible,
+      messages
     } from "../stores/stores";
     import {
       isAudioMessage,
       formatMessageForMarkdown,
-    } from "./utils/generalUtils";
+    } from "../utils/generalUtils";
+
+    import { copyTextToClipboard } from "../utils/generalUtils";
     import {
-      routeMessage,
-      newChat,
-      deleteMessageFromConversation,
-    } from "./managers/conversationManager";
-    import { copyTextToClipboard } from "./utils/generalUtils";
-    import {
-      selectedModel,
-      selectedVoice,
-      selectedMode,
       isStreaming,
-    } from "./stores/stores";
-    import { reloadConfig } from "./services/openaiService";
-    import {
-      handleImageUpload,
-      onSendVisionMessageComplete,
-    } from "./managers/imageManager";
-    import { base64Images } from "./stores/stores";
-    import { closeStream } from "./services/openaiService";
+    } from "../stores/stores";
+    import {sendMessage,closeStream} from "../services/uuAIServices"
+    import {clearChat,deleteMessage} from "../manages/messageManages"
   
     // 自定义 renderers
     const renderers = {
@@ -98,14 +81,11 @@
       langPrefix: "hljs language-", // 为高亮添加类前缀，确保样式生效
     });
   
-    let urlParameter = "";
-    let fileInputElement;
-    let pdfInputElement;
+    let urlParameter;
     let input: string = "";
-    let textAreaElement;
-    let editTextArea;
+    let textAreaElement:any;
+    let editTextArea:any;
   
-    let pdfFile;
     let pdfOutput = "";
   
     let chatContainer: HTMLElement;
@@ -115,56 +95,8 @@
     let editingMessageId: number | null = null;
     let editingMessageContent: string = "";
   
-    $: if ($clearFileInputSignal && fileInputElement) {
-      fileInputElement.value = "";
-      clearFileInputSignal.set(false); // Reset the signal
-    }
-  
-    $: if ($clearPDFInputSignal && pdfInputElement) {
-      pdfInputElement.value = "";
-      clearPDFInputSignal.set(false); // Reset the signal
-    }
-  
-    $: {
-      const currentConversationId = $chosenConversationId;
-      const currentConversations = $conversations;
-      const totalConversations = $conversations.length;
-  
-      if (
-        currentConversationId !== undefined &&
-        currentConversations[currentConversationId]
-      ) {
-        conversationTitle =
-          currentConversations[currentConversationId].title || "New Conversation";
-      }
-      if (
-        currentConversationId === undefined ||
-        currentConversationId === null ||
-        currentConversationId < 0 ||
-        currentConversationId >= totalConversations
-      ) {
-        console.log("changing conversation from ID", $chosenConversationId);
-        chosenConversationId.set(
-          totalConversations > 0 ? totalConversations - 1 : null,
-        );
-        console.log("to ID", $chosenConversationId);
-      }
-    }
-  
-    async function uploadPDF(event) {
-      pdfFile = event.target.files[0]; // Get the first file (assuming single file upload)
-      if (pdfFile) {
-        pdfOutput = await processPDF(pdfFile);
-        console.log(pdfOutput);
-      }
-    }
-  
-    function clearFiles() {
-      base64Images.set([]); // Assuming this is a writable store tracking uploaded images
-      pdfFile = null; // Clear the file variable
-      pdfOutput = ""; // Reset the output
-      pdfInputElement.value = "";
-    }
+
+
   
     let chatContainerObserver: MutationObserver | null = null;
   
@@ -220,7 +152,7 @@
   
     const textMaxHeight = 300; // Maximum height in pixels
   
-    function autoExpand(event) {
+    function autoExpand(event:any) {
       event.target.style.height = "inherit"; // 重置高度
       const computed = window.getComputedStyle(event.target);
       const height =
@@ -237,15 +169,13 @@
       }
     }
   
-    function handleInput(event) {
+    function handleInput(event:any) {
       autoExpand(event); // 扩展 textarea 的高度
     }
   
     function processMessage() {
-      let convId = $chosenConversationId;
-      routeMessage(input, convId, pdfOutput);
+      sendMessage(input);
       input = "";
-      clearFiles();
       textAreaElement.style.height = "6rem"; // Reset the height after sending
     }
     function scrollChat() {
@@ -255,34 +185,23 @@
     let lastMessageCount = 0;
     afterUpdate(() => {
       const currentMessageCount =
-        $conversations[$chosenConversationId]?.history.length || 0;
+        $messages.length || 0;
       if (currentMessageCount > lastMessageCount) {
         scrollChat();
       }
       lastMessageCount = currentMessageCount; // Update the count after every update
     });
   
-    $: isVisionMode = $selectedMode.includes("Vision");
-    $: isGPTMode = $selectedMode.includes("GPT");
   
-    $: conversationTitle = $conversations[$chosenConversationId]
-      ? $conversations[$chosenConversationId].title
-      : "ChatGPT";
+
+
   
-    let uploadedFileCount: number = 0;
-    $: uploadedFileCount = $base64Images.length;
-  
-    let uploadedPDFCount: number = 0;
-    $: if (pdfOutput) {
-      uploadedPDFCount = 1;
-    } else {
-      uploadedPDFCount = 0;
-    }
+
   
     function startEditMessage(i: number) {
       editingMessageId = i;
-      editingMessageContent =
-        $conversations[$chosenConversationId].history[i].content;
+      // editingMessageContent =
+      //   $conversations[$chosenConversationId].history[i].content;
     }
   
     function retry(i: number){
@@ -297,30 +216,30 @@
     }
   
     function submitEdit(i: number) {
-      const editedContent = editingMessageContent; // Temporarily store the edited content
-      // Calculate how many messages need to be deleted
-      const deleteCount =
-        $conversations[$chosenConversationId].history.length - i;
-      // Delete messages from the end to the current one, including itself
-      for (let j = 0; j < deleteCount; j++) {
-        deleteMessageFromConversation(
-          $conversations[$chosenConversationId].history.length - 1,
-        );
-      }
-      // Process the edited message as new input
-      let convId = $chosenConversationId;
-      routeMessage(editedContent, convId, pdfOutput);
-      cancelEdit(); // Reset editing state
+      // const editedContent = editingMessageContent; // Temporarily store the edited content
+      // // Calculate how many messages need to be deleted
+      // const deleteCount =
+      //   $conversations[$chosenConversationId].history.length - i;
+      // // Delete messages from the end to the current one, including itself
+      // for (let j = 0; j < deleteCount; j++) {
+      //   deleteMessageFromConversation(
+      //     $conversations[$chosenConversationId].history.length - 1,
+      //   );
+      // }
+      // // Process the edited message as new input
+      // let convId = $chosenConversationId;
+      // routeMessage(editedContent, convId, pdfOutput);
+      // cancelEdit(); // Reset editing state
     }
   
-    function isImageUrl(url) {
-      // Ensure the URL has no spaces and matches the domain and specific content type for images
-      return (
-        !/\s/.test(url) &&
-        url.includes("blob.core.windows.net") &&
-        /rsct=image\/(jpeg|jpg|gif|png|bmp)/i.test(url)
-      );
-    }
+    // function isImageUrl(url) {
+    //   // Ensure the URL has no spaces and matches the domain and specific content type for images
+    //   return (
+    //     !/\s/.test(url) &&
+    //     url.includes("blob.core.windows.net") &&
+    //     /rsct=image\/(jpeg|jpg|gif|png|bmp)/i.test(url)
+    //   );
+    // }
   
     document.addEventListener("DOMContentLoaded", function () {
       // 选择所有的 h1-h6 标签
@@ -339,32 +258,33 @@
     // 点赞和踩的方法  因为history是openai API里的ChatCompletionRequestMessage类型，
     //而ChatCompletionRequestMessage类型不包含isLiked和isDisliked这两个属性,所以直接增加属性会报错；
     //stores里定义customChatCompletionRequestMessage继承ChatCompletionRequestMessage,增加isLiked和isDisliked两个属性
-    function toggleLike(msgid) {
-      let msg = $conversations[$chosenConversationId].history[msgid];
+    function toggleLike(msgid:any) {
+      let msg = $messages[msgid];
       msg.isLiked = true;
       msg.isDisliked = false;
-      let conv = get(conversations);
-      conv[$chosenConversationId].history[msgid] = msg;
-      conversations.set(conv);
+      let conv = get(messages);
+      conv[msgid] = msg;
+      messages.set(conv);
     }
   
-    function toggleDislike(msgid) {
-      console.log($conversations[$chosenConversationId].history[msgid]);
-      let msg = $conversations[$chosenConversationId].history[msgid];
+    function toggleDislike(msgid:any) {
+      let msg = $messages[msgid];
       msg.isLiked = false;
       msg.isDisliked = true;
-      let conv = get(conversations);
-      conv[$chosenConversationId].history[msgid] = msg;
-      conversations.set(conv);
+      let conv = get(messages);
+      conv[msgid] = msg;
+      messages.set(conv);
+    }
+
+    function reloadConfig(){
+      console.log();
     }
   </script>
   
   <title>
-    {#if $conversations.length > 0 && $conversations[$chosenConversationId]}
-      {$conversations[$chosenConversationId].title || $t("app.title")}
-    {:else}
+
       {$t("app.title")}
-    {/if}
+    
   </title>
   {#if $settingsVisible}
     <Settings on:settings-changed={reloadConfig} />
@@ -375,15 +295,15 @@
     <div
       class="h-screen flex justify-stretch flex-col bg-secondary text-black/80 height-manager"
     >
-      <Topbar bind:conversation_title={conversationTitle} on:new-chat={newChat} />
+      <Topbar bind:conversation_title={conversationTitle} on:new-chat={clearChat} />
       <div
         class="flex bg-primary overflow-y-auto overflow-x-hidden justify-center grow"
         bind:this={chatContainer}
       >
-        {#if $conversations.length > 0 && $conversations[$chosenConversationId]}
+        {#if $messages.length > 0}
           <div class="flex flex-col pt-2 grow max-w-full px-0 sm:px-5">
             <div class="w-full">
-              {#each $conversations[$chosenConversationId].history as message, i}
+              {#each $messages as message, i}
                 {#if message.role !== "system"}
                   <div
                     class="message relative inline-block bg-primary px-3 mt-3 flex flex-col transition-all duration-200 ease-in-out"
@@ -432,20 +352,7 @@
                       <div
                         class="message-display mt-2 transition-all duration-200 ease-in-out"
                       >
-                        {#if isImageUrl(message.content)}
-                          <img
-                            src={message.content}
-                            alt="Generated"
-                            class="max-w-full h-auto my-3"
-                          />
-                          <div class="text-sm text-gray-500">
-                            {$t("app.imageSaveHint")}
-                          </div>
-                        {:else if isAudioMessage(message)}
-                          <div class="pb-3">
-                            <AudioPlayer audioUrl={message.audioUrl} />
-                          </div>
-                        {:else if message.role === "assistant"}
+                        {#if  message.role === "assistant"}
                           <SvelteMarkdown
                             {renderers}
                             source={formatMessageForMarkdown(
@@ -464,7 +371,6 @@
                       <div class="toolbelt flex mb-2 tools justify-between">
                         <div class="flex space-x-2">
                           {#if message.role === "assistant"}
-                            {#if !isAudioMessage(message) && !isImageUrl(message.content)}
                               <button
                                 class="copyButton btn-custom"
                                 on:click={() =>
@@ -489,10 +395,9 @@
                                 />
                                 <span class="btn-text">{$t("app.retry")}</span>
                               </button>
-                            {/if}
                             <button
                               class="deleteButton btn-custom"
-                              on:click={() => deleteMessageFromConversation(i)}
+                              on:click={() => deleteMessage(i)}
                             >
                               <img
                                 class="delete-icon"
@@ -574,47 +479,6 @@
         <div
           class="inputbox flex flex-1 bg-primary mt-auto mx-auto mb-3 relative"
         >
-          <!-- {#if isVisionMode}
-            <input type="file" id="imageUpload"  multiple accept="image/*"
-              on:change={handleImageUpload}
-              bind:this={fileInputElement}
-              class="file-input"
-            />
-            <label for="imageUpload" class="file-label bg-chat rounded py-2 px-4 mx-1 cursor-pointer hover:bg-hover2 transition-colors">
-              {#if uploadedFileCount > 0}
-                <span class="fileCount">{uploadedFileCount}</span>
-              {:else}
-                <img src={UploadIcon}  alt="Upload" class="upload-icon icon-white"/>
-              {/if}
-            </label>
-  
-            {#if uploadedFileCount > 0}
-              <button on:click={clearFiles} class="clear-btn">X</button>
-          {/if}
-  
-          {:else if isGPTMode}
-            <input type="file" id="pdfUpload" accept="application/pdf" 
-              on:change={(event) => uploadPDF(event)}
-              bind:this={pdfInputElement}
-              class="file-input"
-            />
-  
-            <label for="pdfUpload" class="file-label bg-chat rounded py-2 px-4 mx-1 cursor-pointer hover:bg-hover2 transition-colors">
-              {#if uploadedPDFCount === 0}
-                <img src={PDFIcon} alt="PDF" class="pdf-icon icon-white" />
-              {:else}
-                <span class="fileCount">{uploadedPDFCount}</span>
-              {/if}
-            </label>
-  
-            {#if uploadedPDFCount > 0}
-              <button
-                on:click={clearFiles}
-                class="clear-btn px-4 rounded-lg bg-red-700 mx-2 hover:bg-red-500">
-                X
-              </button>
-            {/if}
-          {/if} -->
   
           <textarea
             bind:this={textAreaElement}
@@ -648,19 +512,6 @@
           <div
             class="absolute textarea-btn-set flex justify-between bg-primary pb-1"
           >
-            <!-- 选择mode -->
-            <!-- <div class="btn">
-              <select
-                bind:value={$selectedMode}
-                class="select-custom"
-                id="mode-selection"
-              >
-                <option value="GPT">GPT</option>
-                <option value="GPT + Vision">GPT + Vision</option>
-                <option value="Dall-E">Dall-E</option>
-                <option value="TTS">TTS</option>
-              </select>
-            </div> -->
             
             <div class="flex send-btn-set flex-end items-center gap-1">
               <!-- 发送按钮 -->

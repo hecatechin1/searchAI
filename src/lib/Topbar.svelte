@@ -19,7 +19,7 @@
 
   //清空当前聊天
   function clearConversation() {
-
+    dispatch("new-chat");
   }
 
   export let conversation_title: string;

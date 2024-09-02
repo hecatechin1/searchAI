@@ -4,7 +4,14 @@ import {messages, userRequestedStreamClosure,isStreaming ,streamContext} from ".
 import {currentMessageid, type CustomMessage} from "../stores/stores";
 import {setMessagesHistory} from "../manages/messageManages";
 
-export async function sendMessage(msg:CustomMessage) {
+let globalSource: EventSource | null = null;  
+
+
+export const closeStream = async()=>{
+
+}
+
+export async function sendMessage(msg:any) {
     userRequestedStreamClosure.set(false);
     let hasError = false;
     let currentMessages = get(messages);
@@ -13,7 +20,7 @@ export async function sendMessage(msg:CustomMessage) {
     let done = false;
     let streamText = "";
     isStreaming.set(true);
-    let source = new SSE('',{
+    let source = new SSE("http://5.78.72.38:8100/ai/stream",{
         headers:{
             "Content-Type": "application/json",
         },
@@ -23,7 +30,7 @@ export async function sendMessage(msg:CustomMessage) {
         })
     });
 
-    source.addEventListener("message",async(e)=>{
+    source.addEventListener("message",async(e:any)=>{
         let payload;
         console.log(e.data);
         try{
@@ -62,4 +69,7 @@ export async function sendMessage(msg:CustomMessage) {
         streamText = "";
         isStreaming.set(false);
     });
+
+    source.stream();  
+    globalSource = source;  
 }
