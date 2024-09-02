@@ -34,7 +34,12 @@
   import LikeActiveIcon from "./assets/helpful-checked.svg";
   import DislikeActiveIcon from "./assets/unhelpful-checked.svg";
   import { afterUpdate } from "svelte";
-  import { settingsVisible, messages } from "./stores/stores";
+  import {
+    settingsVisible,
+    messages,
+    sendKey,
+    lineBreakKey,
+  } from "./stores/stores";
   import {
     isAudioMessage,
     formatMessageForMarkdown,
@@ -42,9 +47,14 @@
 
   import { copyTextToClipboard } from "./utils/generalUtils";
   import { isStreaming } from "./stores/stores";
-  import { sendMessage, closeStream } from "./services/uuAIServices";
-  import { clearChat, deleteMessage } from "./manages/messageManages";
-
+  import { closeStream } from "./services/uuAIServices";
+  import {
+    clearChat,
+    deleteMessage,
+    sendRegularMessage,
+    sendRetryMessage
+  } from "./manages/messageManages";
+  import { parse } from "svelte/compiler";
   // 自定义 renderers
   const renderers = {
     code: CodeRenderer,
@@ -91,7 +101,7 @@
   let editingMessageContent: string = "";
 
   let chatContainerObserver: MutationObserver | null = null;
-
+  let isMobile = false;
   function setupMutationObserver() {
     if (!chatContainer) return; // Ensure chatContainer is mounted
 
@@ -107,7 +117,7 @@
 
   onMount(async () => {
     await initApp();
-
+    isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test( navigator.userAgent,);
     // Setup MutationObserver after app initialization and component mounting
     setupMutationObserver();
 
@@ -141,6 +151,48 @@
       }
     }
   }
+  const keys = {
+    Enter: "001",
+    "Shift+Enter": "011",
+    "Ctrl+Enter": "101",
+  };
+  function textAreaKeysListener(event: any) {
+    
+    let sendCode = parseInt(keys[get(sendKey)], 2);
+    let linebreakCode = parseInt(keys[get(lineBreakKey)], 2);
+    // const isMobile =
+    //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    //     navigator.userAgent,
+    //   );
+    let e = parseInt(event.key === "Enter" ? "001" : "000", 2);
+    let se = parseInt(event.shiftKey ? "010" : "000", 2);
+    let ce = parseInt(event.ctrlKey ? "100" : "000", 2);
+    let kd = ce | se | e;
+    if ((!(sendCode ^ kd)) && (!isMobile)) {
+      event.preventDefault(); // Prevent default insert line break behavior
+      processMessage();
+    }
+
+    if ((!(linebreakCode ^ kd)) ||  (event.key === "Enter" && isMobile)  ) {
+      event.preventDefault(); // Prevent default insert line break behavior
+      const textarea = this;
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+
+      // Insert a newline character at the current cursor position
+      textarea.value =
+        textarea.value.substring(0, start) +
+        "\n" +
+        textarea.value.substring(end);
+
+      // Move the cursor to the correct position after inserting the newline
+      textarea.selectionStart = textarea.selectionEnd = start + 1;
+    }
+
+    // if (event.key === "Enter" && isMobile) {
+      
+    // }
+  }
 
   const textMaxHeight = 300; // Maximum height in pixels
 
@@ -166,7 +218,7 @@
   }
 
   function processMessage() {
-    sendMessage(input);
+    sendRegularMessage(input);
     input = "";
     textAreaElement.style.height = "6rem"; // Reset the height after sending
   }
@@ -185,11 +237,12 @@
 
   function startEditMessage(i: number) {
     editingMessageId = i;
-    // editingMessageContent =
-    //   $conversations[$chosenConversationId].history[i].content;
+    editingMessageContent = get(messages)[i].content;
   }
 
-  function retry(i: number) {}
+  function retry(i: number) {
+    sendRetryMessage(get(messages)[i-1].content,i)
+  }
 
   function cancelEdit() {
     editingMessageId = null;
@@ -198,7 +251,9 @@
   }
 
   function submitEdit(i: number) {
-    // const editedContent = editingMessageContent; // Temporarily store the edited content
+    const editedContent = editingMessageContent; // Temporarily store the edited content
+    sendRetryMessage(editedContent,i+1);
+    cancelEdit();
     // // Calculate how many messages need to be deleted
     // const deleteCount =
     //   $conversations[$chosenConversationId].history.length - i;
@@ -213,16 +268,6 @@
     // routeMessage(editedContent, convId, pdfOutput);
     // cancelEdit(); // Reset editing state
   }
-
-  // function isImageUrl(url) {
-  //   // Ensure the URL has no spaces and matches the domain and specific content type for images
-  //   return (
-  //     !/\s/.test(url) &&
-  //     url.includes("blob.core.windows.net") &&
-  //     /rsct=image\/(jpeg|jpg|gif|png|bmp)/i.test(url)
-  //   );
-  // }
-
   document.addEventListener("DOMContentLoaded", function () {
     // 选择所有的 h1-h6 标签
     const headings = document.querySelectorAll(
@@ -368,7 +413,7 @@
                           <button
                             class="copyButton btn-custom"
                             on:click={() =>
-                              copyTextToClipboard(message.content)}
+                              retry(i)}
                           >
                             <img
                               class=""
@@ -475,26 +520,7 @@
           bind:value={input}
           on:input={handleInput}
           style="height: 6.5rem; overflow-y: auto; overflow:visible !important;"
-          on:keydown={(event) => {
-            const isMobile =
-              /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-                navigator.userAgent,
-              );
-            if (
-              !$isStreaming &&
-              event.key === "Enter" &&
-              !event.shiftKey &&
-              !event.ctrlKey &&
-              !event.metaKey &&
-              !isMobile
-            ) {
-              event.preventDefault(); // Prevent default insert line break behavior
-              processMessage();
-            } else if (!$isStreaming && event.key === "Enter" && isMobile) {
-              // Allow default behavior on mobile, which is to insert a new line
-              // Optionally, you can explicitly handle mobile enter key behavior here if needed
-            }
-          }}
+          on:keydown={textAreaKeysListener}
         ></textarea>
         <div
           class="absolute textarea-btn-set flex justify-between bg-primary pb-1"

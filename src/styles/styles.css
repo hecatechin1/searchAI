@@ -114,6 +114,7 @@ padding-bottom: 0.5rem;
 
 .btn-custom {
   @apply flex text-[0.8rem] py-1 px-2 bg-secondary h-[1.75rem] rounded items-center gap-1 hover:bg-themegreyhover;
+  /* display: none */
 }
 
 .icon-small{
